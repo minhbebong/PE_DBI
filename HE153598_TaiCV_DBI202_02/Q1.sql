@@ -21,3 +21,33 @@ create table hasPermission(
 	PermissionID int references Permissions(PermissionID),
 	primary key (RoleID,PermissionID)
 )
+
+--Đe khac 
+-- question 1
+create table categories(
+catID int PRIMARY KEY,
+name nvarchar(255)
+)
+create table items(
+itemID int PRIMARY KEY,
+name nvarchar(255),
+price float
+)
+create table itemVariants(
+itemID int,
+variantID int,
+detail nvarchar(200),
+color nvarchar(50),
+size nvarchar(30)
+constraint fk_itemVariants_items foreign key(itemID)
+references items(itemID)
+)
+create table belongTo(
+itemID int,
+catID int,
+constraint fk_belongTo_items foreign key(itemID)
+references items(itemID),
+constraint fk_belongTo_categories foreign key(catID)
+references categories(catID),
+primary key(itemID,catID)
+)

@@ -4,12 +4,12 @@
 -- thuoc category 'Sports'
 insert into Category(CategoryName)
 values ('Sports')
-delete from Category where CategoryName = 'Sports'
+
 insert into SubCategory(SubCategoryName, CategoryID)
 values ('Tennis',(select ID from Category where CategoryName = 'Sports')),
 ('Football',(select ID from Category where CategoryName = 'Sports'))
 
  
- select * from Category
+/* select * from Category
 
 select * from SubCategory */ --> test xong thi xoa di
